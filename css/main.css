@@ -7,15 +7,17 @@ body {
 
 .hero-section {
     min-width: 100%;
-    min-height: 100vh;
+    min-height: 1100px;
+    /* min-height: 100vh; */
     text-align: center;
     background-image: url(/Asset/HEROPIC.png);
     background-size: 100% 50%;
     background-repeat: no-repeat;
     background-position: bottom;
+    margin-bottom: .5rem;
 }
 .mynav {
-    width: 100%;
+    width: 97%;
     height: fit-content;
     background-color: #FEF9D9;
     z-index: 2;
