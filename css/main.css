@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Island+Moments&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    background-color: #8EACCD;
+    font-family: "Poppins", sans-serif;
+}
+
+.hero-section {
+    min-width: 100%;
+    min-height: 100vh;
+    text-align: center;
+    background-image: url(/Asset/HEROPIC.png);
+    background-size: 100% 50%;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+.mynav {
+    width: 100%;
+    height: fit-content;
+    background-color: #FEF9D9;
+    z-index: 2;
+}
+.my-list li a:hover {
+    background-color: #8EACCD ;
+}
+
+.big-title {
+    font-weight: bold;
+    margin-top: 85px;
+    line-height: 40px;
+}
+.my-desc {
+    margin-top: 60px;
+    line-height: 30px;
+}
+.call-to-action{
+    margin-top: 15px;
+    background-color: #FEF9D9;
+}
+.call-to-action:hover {
+    background-color: #e7d87d;
+}
+
+ @media  screen and (min-width:768px){
+    .hero-section { 
+    max-width: 960px;
+    margin: 0 auto;
+    min-height: 100vh;
+    background-size: 50% 100%;
+    background-repeat: no-repeat;
+    background-position: 100% 0;
+}
+.mynav {
+    width: 75%;
+}
+.my-list li a {
+    border-radius: 1rem;
+}
+} 
+
+@media screen and (min-width:1024px){
+    .mynav {
+        width: 45%;
+    }
+    .big-title {
+        font-weight: bold;
+        text-align: left;
+        margin-top: 75px;
+        font-size: 3rem;   
+    }
+    .my-desc {
+        text-align: left;
+        width: 450px;
+        line-height: 30px;
+    }
+    .call-to-action{
+        margin-top: 15px;
+        margin-left: 0;
+    }
+    .hero-section {
+        text-align: left;
+    }
+}
