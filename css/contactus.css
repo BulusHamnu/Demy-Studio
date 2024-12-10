@@ -1,0 +1,80 @@
+.contact-info , .contact-form {
+    margin-top: 85px;
+    
+}
+
+.contact-form {
+    background-color: rgba(218, 231, 243,0.6);
+    border-radius: .3rem;
+}
+
+.my-send-btn {
+    background-color: #FEF9D9;
+}
+
+.my-send-btn:hover {
+    background-color: #e7d87d;
+}
+
+#message-box {
+    height: 150px;
+}
+
+p {
+    margin: 0;
+    font-size: 0.8rem;
+}
+
+p a:hover {
+    text-decoration: underline;
+    color: #0066cc;
+}
+
+.contact-cont {
+    background-color:  rgba(255, 255, 255, 0.6);
+    margin-top: .5rem;
+    padding: .3rem;
+    width: fit-content;
+    border-radius: .2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid;
+}
+.icons {
+    height: 25px;
+    margin-right: .3rem;
+    fill: black;
+}
+
+
+@media screen and (min-width:600px){
+    .contact-info, .contact-form {
+        width: 500px;
+        margin: auto;
+        margin-top: 5rem;
+    }
+
+    p {
+        margin: 0;
+        font-size: 0.8rem;
+    }
+    
+    .contact-cont {
+        padding: .4rem;
+    }
+    .icons {
+        height: 30px;
+    }
+}
+
+@media screen and (min-width:1000px){
+    .contact-info, .contact-form {
+        width:50%;
+        margin-top: 85px;
+    }
+}
+
+
+
+
