@@ -10,6 +10,16 @@ let usplashSearch = usplashUrl + "page=1" + `&query=portrait` + "&per_page=28";
 req_photo(usplashSearch)
 
 
+/* new code here */
+const goUpBtn = document.querySelector(".back-to-top")
+goUpBtn.addEventListener("click", function() {
+    window.scrollTo({
+        top: 0,  
+        behavior: "smooth"
+    });
+})
+
+
 
 tabBtns.forEach(tab => {
     tab.addEventListener("click", function() {
@@ -27,6 +37,13 @@ tabBtns.forEach(tab => {
 
 window.addEventListener('scroll', function() {
     
+    if(window.scrollY > 300) {
+        goUpBtn.classList.add("show")
+    } else {
+        goUpBtn.classList.remove("show")
+    }
+
+
 });
 
 
