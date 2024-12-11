@@ -3,14 +3,13 @@ const imgCont = document.querySelector(".img-cont")
 const tabBtns = document.querySelectorAll(".tab")
 let usplashUrl = "https://api.unsplash.com/search/photos?";
 const accessKey = "Due0ntPNArjU3q7Ztrb8fi3T4PoTmyTQS9-fuaU2xec";
-let timesScroll = 1;
 
 
 let usplashSearch = usplashUrl + "page=1" + `&query=portrait` + "&per_page=28";  
 req_photo(usplashSearch)
 
 
-/* new code here */
+
 const goUpBtn = document.querySelector(".back-to-top")
 goUpBtn.addEventListener("click", function() {
     window.scrollTo({
@@ -26,7 +25,7 @@ tabBtns.forEach(tab => {
     tabBtns.forEach(btn => btn.classList.remove("active"))
     this.classList.add("active");
 
-    let search = usplashUrl + "page=1" + "&query=" + this.dataset.search + "&per_page=28";
+    let search = usplashUrl + "page=1" + "&query=" + keyWord + "&per_page=28";
     req_photo(search);
     console.log(search)
     })
@@ -43,7 +42,6 @@ window.addEventListener('scroll', function() {
         goUpBtn.classList.remove("show")
     }
 
-
 });
 
 
@@ -56,7 +54,7 @@ function req_photo(usplashSearchParam) {
     "Content-Type": "application/json",   
     } })
         .then(response => {
-        console.log(response.ok)
+        
         if(response.ok){
             return response.json()
         } else {
@@ -65,7 +63,7 @@ function req_photo(usplashSearchParam) {
         }
             })
         .then(data => {
-            console.log(data.results)
+            
             displayPhotos(data.results)
               })
         .catch(error => console.log(error))

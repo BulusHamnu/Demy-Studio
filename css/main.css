@@ -3,6 +3,7 @@
 body {
     background-color: #8EACCD;
     font-family: "Poppins", sans-serif;
+    scroll-behavior: smooth;
 }
 
 .hero-section {
