@@ -25,7 +25,7 @@ tabBtns.forEach(tab => {
     tabBtns.forEach(btn => btn.classList.remove("active"))
     this.classList.add("active");
 
-    let search = usplashUrl + "page=1" + "&query=" + keyWord + "&per_page=28";
+    let search = usplashUrl + "page=1" + "&query=" + this.dataset.search + "&per_page=28";
     req_photo(search);
     console.log(search)
     })
