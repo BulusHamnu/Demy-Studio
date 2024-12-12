@@ -76,21 +76,20 @@
               </div>
 
 
-                <form novalidate method="post" action="src/form.js" id="myForm">
+                <form method="post" action="src/form.js" id="myForm">
                     <div class="mb-3">
                         <label for="user-email" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="user-email" placeholder="Enter your email..">
-                        <div class="invalid-feedback">Please provide a valid email address.</div>
+                        <input type="email" class="form-control" id="user-email" placeholder="Enter your email.." required>
                     </div>
                     <div class="mb-3">
                         <label for="message-subject" class="form-label">Subject</label>
-                        <input type="text" class="form-control" id="message-subject" placeholder="Message subject">
+                        <input type="text" class="form-control" id="message-subject" placeholder="Message subject" required>
                     </div>
                     <div class="mb-3">
                         <label for="message-box" class="form-label">Message</label>
-                        <textarea class="form-control" id="message-box" rows="3" placeholder="Your message.."></textarea>
+                        <textarea class="form-control" id="message-box" rows="3" placeholder="Your message.." required></textarea>
                       </div>
-                    <button type="submit" class="btn my-send-btn" data-bs-toggle="modal" data-bs-target="#message-sent-modal">Send Message</button>
+                    <button type="submit" class="btn my-send-btn">Send Message</button>
                   </form>
             </section>
         </div>

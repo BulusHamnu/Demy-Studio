@@ -48,6 +48,7 @@ main {
     height: 100%;
     transition: all 0.3s linear ;
     position: relative;
+    opacity: 0;
 }
 
 .img-fluid:hover {
@@ -67,10 +68,10 @@ main {
     padding: 10px;
     color: #000;
     opacity: 0;
+    transition: opacity 1s ease-in-out;
 }
 
 .img-fluid:hover {
-    opacity: 1;
     z-index: 3;
 }
 
@@ -78,6 +79,9 @@ main {
     background-color:#e7d87d ;
 }
 
+.img-fluid.show {
+    opacity: 1;
+}
 
 
 .back-to-top {

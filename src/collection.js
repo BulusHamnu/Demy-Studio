@@ -1,15 +1,19 @@
-//
+//so weird of me for add comment but i want to be a change programmer haha...
+
+/* init my variable */
 const imgCont = document.querySelector(".img-cont")
 const tabBtns = document.querySelectorAll(".tab")
 let usplashUrl = "https://api.unsplash.com/search/photos?";
 const accessKey = "Due0ntPNArjU3q7Ztrb8fi3T4PoTmyTQS9-fuaU2xec";
 
 
+/* load images */
 let usplashSearch = usplashUrl + "page=1" + `&query=portrait` + "&per_page=28";  
 req_photo(usplashSearch)
 
 
 
+/* event listeners */
 const goUpBtn = document.querySelector(".back-to-top")
 goUpBtn.addEventListener("click", function() {
     window.scrollTo({
@@ -17,7 +21,6 @@ goUpBtn.addEventListener("click", function() {
         behavior: "smooth"
     });
 })
-
 
 
 tabBtns.forEach(tab => {
@@ -45,6 +48,48 @@ window.addEventListener('scroll', function() {
 });
 
 
+
+/* little intersectionObserver for fade animation */
+const imgAtView = new IntersectionObserver (entries => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting) {
+            console.log("Intersecting")
+            entry.target.classList.add("show")
+            imgAtView.unobserve(entry.target);
+        }
+    })
+}, {
+    root: null,
+    threshold: 0.1
+});
+
+
+
+const observedPhotos = new Set(); 
+
+const observer = new MutationObserver(mutations => {
+    mutations.forEach(mutation => {
+        console.log(mutation);
+        if (mutation.type === "childList") {
+            const PhotoList = imgCont.querySelectorAll(".img-fluid");
+            PhotoList.forEach(photo => {
+                if(!observedPhotos.has(photo)) {
+                    observedPhotos.add(photo);
+                    imgAtView.observe(photo);
+                }
+                });
+        }
+    });
+});
+
+observer.observe(imgCont, {
+    childList: true,
+    subtree: false
+});
+
+
+
+/* fetch images function */
 function req_photo(usplashSearchParam) {
     fetch(usplashSearchParam,{
         method: "GET",         
@@ -71,7 +116,7 @@ function req_photo(usplashSearchParam) {
 
 
 
-
+/* display images function */
 function displayPhotos(photos) {
     if(photos.length > 0) {
         
