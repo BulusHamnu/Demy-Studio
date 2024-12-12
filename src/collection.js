@@ -5,10 +5,13 @@ const imgCont = document.querySelector(".img-cont")
 const tabBtns = document.querySelectorAll(".tab")
 let usplashUrl = "https://api.unsplash.com/search/photos?";
 const accessKey = "Due0ntPNArjU3q7Ztrb8fi3T4PoTmyTQS9-fuaU2xec";
+let isFetching = false;
+let keyWord = `portrait`;
+let pageNum = 1;
 
 
 /* load images */
-let usplashSearch = usplashUrl + "page=1" + `&query=portrait` + "&per_page=28";  
+let usplashSearch = usplashUrl + "page=1" + `&query=${keyWord}` + "&per_page=28";  
 req_photo(usplashSearch)
 
 
@@ -27,8 +30,9 @@ tabBtns.forEach(tab => {
     tab.addEventListener("click", function() {
     tabBtns.forEach(btn => btn.classList.remove("active"))
     this.classList.add("active");
-
-    let search = usplashUrl + "page=1" + "&query=" + this.dataset.search + "&per_page=28";
+    
+    keyWord = this.dataset.search;
+    let search = usplashUrl + "page=1" + "&query=" + keyWord + "&per_page=28";
     req_photo(search);
     console.log(search)
     })
@@ -48,12 +52,72 @@ window.addEventListener('scroll', function() {
 });
 
 
+/* infinite scrolliong feature */
+
+function loadImgages(photos) {
+    if(photos.length > 0) {
+        photos.forEach(photo => {
+            let rows = `
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 ">
+                    <a href="${photo.links.download}" > <img class="img-fluid" src="${photo.urls.small}" alt="${photo.alt_description}"></a>
+                </div>
+            `;
+
+        imgCont.innerHTML += rows; 
+        
+        isFetching = false;
+    })
+    } else {
+        console.log("No photos")
+        imgCont.innerHTML = "<p class='text-danger'>Failed to load images. Please try again later.</p>";
+    }
+}
+
+
+window.addEventListener('scroll', function() {
+    
+    if(window.innerHeight + window.scrollY >= document.body.offsetHeight - 600) {
+
+        if(!isFetching) {
+            isFetching = true;
+            pageNum++;
+            let search = usplashUrl + "page=" + pageNum + "&query=" + keyWord + "&per_page=28";
+            console.log(search)
+
+            //get more images
+            fetch(search,{
+                method: "GET",         
+                headers: {
+            Authorization: `Client-ID ${accessKey}`,
+            "Accept-Version": "V1",
+            "Content-Type": "application/json",   
+            } })
+                .then(response => {
+                
+                if(response.ok){
+                    return response.json()
+                } else {
+                    displayPhotos([]);
+                    throw new Error("Error in fetching data")
+                }
+                    })
+                .then(data => {
+                    
+                    loadImgages(data.results)
+                      })
+                .catch(error => console.log(error))
+            
+        }
+        console.log("reach bottom of document")
+    }
+});
+
+
 
 /* little intersectionObserver for fade animation */
 const imgAtView = new IntersectionObserver (entries => {
     entries.forEach(entry => {
         if(entry.isIntersecting) {
-            console.log("Intersecting")
             entry.target.classList.add("show")
             imgAtView.unobserve(entry.target);
         }
@@ -69,7 +133,7 @@ const observedPhotos = new Set();
 
 const observer = new MutationObserver(mutations => {
     mutations.forEach(mutation => {
-        console.log(mutation);
+        
         if (mutation.type === "childList") {
             const PhotoList = imgCont.querySelectorAll(".img-fluid");
             PhotoList.forEach(photo => {
@@ -128,6 +192,7 @@ function displayPhotos(photos) {
                 </div>
             `;
         imgCont.innerHTML += rows;
+        isFetching = false;
     })
     } else {
         console.log("No photos")
