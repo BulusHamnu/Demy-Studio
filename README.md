@@ -51,6 +51,6 @@ We welcome contributions to improve the website! Here’s how you can help:
 
 - **Email:** [hamnubulus@gmail.com](mailto:hamnubulus@gmail.com)
 - **Phone:** +234 9068 5569 62
-- **Address:** Yelwan Lebura, Opposite Malam Mansir Mosque.
+
 
 
