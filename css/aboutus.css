@@ -5,14 +5,15 @@
 }
 
 .img:hover {
-    transform: scale(1.1);
+    transform: scale(1.03);
+    filter: grayscale(0);
 }
 
 .img {
     width: 100%;
     height: auto;
     transition: transform 0.3s ease-in;
-    filter: brightness(110%);
+    filter: grayscale(1);
 }
 
 

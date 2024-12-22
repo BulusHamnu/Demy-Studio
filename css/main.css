@@ -9,9 +9,9 @@ body {
 .hero-section {
     min-width: 100%;
     min-height: 1260px;
-    /* min-height: 100vh; */
     text-align: center;
-    background-image: url(/Asset/HEROPIC.png);
+    background-image: url(Asset/HEROPIC.png);
+    /* background-image: url(../Asset/HEROPIC.png); */
     background-size: 100% 50%;
     background-repeat: no-repeat;
     background-position: bottom;
@@ -39,6 +39,7 @@ body {
 .call-to-action{
     margin-top: 15px;
     background-color: #FEF9D9;
+
 }
 .call-to-action:hover {
     background-color: #e7d87d;
@@ -64,11 +65,11 @@ body {
     width: 100%;
     height: 100%;
     border-radius: 1rem;
-    transition: border .2s ease-in;
+    transition: all .2s ease-in;
 }
 
 .social-icon .icons-img:hover {
-    border: .2rem solid #8EACCD;
+    transform: scale(1.2);
 }
 
 
@@ -101,9 +102,9 @@ body {
     }
     .my-desc {
         text-align: left;
-        width: 450px;
+        width: 460px;
         line-height: 27px;
-        font-size: .9rem; 
+        font-size: 1.05rem; 
     }
     .call-to-action{
         margin-top: 10px;

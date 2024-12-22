@@ -52,7 +52,7 @@ main {
 }
 
 .img-fluid:hover {
-    transform: scale(1.1);
+    transform: scale(1.03);
 }
 
 .img-fluid::before {
@@ -75,7 +75,7 @@ main {
     z-index: 3;
 }
 
-.active {
+.tab.active {
     background-color:#e7d87d ;
 }
 
