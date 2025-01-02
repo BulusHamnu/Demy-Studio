@@ -59,7 +59,7 @@ function loadImgages(photos) {
     if(photos.length > 0) {
         photos.forEach(photo => {
             let rows = `
-                <div class="col-12 col-sm-6 col-md-4 col-lg-3 ">
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 img-div" >
                     <a href="${photo.links.download}" > <img class="img-fluid" src="${photo.urls.small}" alt="${photo.alt_description}"></a>
                 </div>
             `;
@@ -190,7 +190,7 @@ function displayPhotos(photos) {
         imgCont.innerHTML = "";
         photos.forEach(photo => {
             let rows = `
-                <div class="col-12 col-sm-6 col-md-4 col-lg-3 ">
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 img-div" >
                     <a href="${photo.links.download}" > <img class="img-fluid" src="${photo.urls.small}" alt="${photo.alt_description}"></a>
                 </div>
             `;

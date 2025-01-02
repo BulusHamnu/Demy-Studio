@@ -54,7 +54,9 @@ main {
 .img-fluid:hover {
     transform: scale(1.03);
 }
-
+.img-div {
+    max-height:380px;
+}
 .img-fluid::before {
     font-size: 20px;
     content: attr(alt);
