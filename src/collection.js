@@ -67,7 +67,7 @@ function loadImgages(photos) {
         imgCont.innerHTML += rows; 
         
         isFetching = false;
-        loader.classList.remove("loading");
+        loader.classList.add("notLoading");
     })
     } else {
         console.log("No photos")
@@ -82,10 +82,10 @@ window.addEventListener('scroll', function() {
 
         if(!isFetching) {
             isFetching = true;
-            loader.classList.add("loading");
+            loader.classList.remove("notLoading");
             pageNum++;
             let search = usplashUrl + "page=" + pageNum + "&query=" + keyWord + "&per_page=28";
-            console.log(search)
+            // console.log(search)
 
             //get more images
             fetch(search,{
@@ -196,7 +196,7 @@ function displayPhotos(photos) {
             `;
         imgCont.innerHTML += rows;
         isFetching = false;
-        loader.classList.remove("loading");
+        loader.classList.add("notLoading");
     })
     } else {
         console.log("No photos")

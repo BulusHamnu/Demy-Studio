@@ -123,11 +123,13 @@ main {
     align-items: center;
     margin-top: .2rem;
     height: max-content;
-    opacity: 0;
-    visibility: hidden;
     transition: opacity .3s linear;
 }
-.loader.loading {
+.loader.notLoading {
+    opacity: 0;
+    visibility: hidden;
+}
+.loader.Loading {
     opacity: 1;
     visibility: visible;
 }
