@@ -3,6 +3,7 @@
 /* init my variable */
 const imgCont = document.querySelector(".img-cont")
 const tabBtns = document.querySelectorAll(".tab")
+const loader = document.querySelector(".loader")
 let usplashUrl = "https://api.unsplash.com/search/photos?";
 const accessKey = "Due0ntPNArjU3q7Ztrb8fi3T4PoTmyTQS9-fuaU2xec";
 let isFetching = false;
@@ -66,6 +67,7 @@ function loadImgages(photos) {
         imgCont.innerHTML += rows; 
         
         isFetching = false;
+        loader.classList.remove("loading");
     })
     } else {
         console.log("No photos")
@@ -80,6 +82,7 @@ window.addEventListener('scroll', function() {
 
         if(!isFetching) {
             isFetching = true;
+            loader.classList.add("loading");
             pageNum++;
             let search = usplashUrl + "page=" + pageNum + "&query=" + keyWord + "&per_page=28";
             console.log(search)
@@ -193,6 +196,7 @@ function displayPhotos(photos) {
             `;
         imgCont.innerHTML += rows;
         isFetching = false;
+        loader.classList.remove("loading");
     })
     } else {
         console.log("No photos")

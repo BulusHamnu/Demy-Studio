@@ -75,6 +75,9 @@ main {
     z-index: 3;
 }
 
+.collections {
+    position: relative;
+}
 .tab.active {
     background-color:#e7d87d ;
 }
@@ -109,6 +112,54 @@ main {
 .back-to-top:hover {
     background-color:white;
     color:black;
+}
+
+.loader {
+    padding: .5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: .2rem;
+    height: max-content;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .3s linear;
+}
+.loader.loading {
+    opacity: 1;
+    visibility: visible;
+}
+.spin {
+    background-color: rgb(255, 255, 255);
+    height: 15px;
+    width: 15px;
+    margin : 0 .3rem;
+    border-radius: 50%;
+    animation : loading 1.3s linear infinite;
+}
+.spin:nth-child(1) {
+    animation-delay: 0.25s;
+}
+.spin:nth-child(2) {
+    animation-delay: 0.50s;
+}
+.spin:nth-child(3) {
+    animation-delay: 0.75s;
+}
+.spin:nth-child(5) {
+    animation-delay: 1s;
+}
+
+@keyframes loading {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-40%);
+    }
+    100% {
+        transform: translateY(0);
+    }
 }
 
 
