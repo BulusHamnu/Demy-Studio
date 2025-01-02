@@ -8,13 +8,13 @@ body {
 
 .hero-section {
     min-width: 100%;
-    min-height: 1260px;
-    text-align: center;
+    min-height: 1300px;
     background-image: url(../Asset/HEROPIC.png);
     background-size: 100% 50%;
     background-repeat: no-repeat;
     background-position: bottom;
     margin-bottom: .5rem;
+    position: relative;
 }
 .mynav {
     width: 97%;
@@ -28,17 +28,20 @@ body {
 
 .big-title {
     font-weight: bold;
-    margin-top: 85px;
+    text-align: center;
+    margin-top: 90px;
     line-height: 40px;
+    max-width: 30rem;
 }
 .my-desc {
     margin-top: 60px;
     line-height: 30px;
 }
 .call-to-action{
-    margin-top: 15px;
+    margin: 0 auto;
+    margin-top: 30px;
     background-color: #FEF9D9;
-
+    display: inline-block;
 }
 .call-to-action:hover {
     background-color: #e7d87d;
@@ -46,18 +49,21 @@ body {
 
 .social-links {
     height: 3rem;
-    width: 13rem ;
+    width: 15rem ;
     background-color: rgb(254, 251, 251);
-    margin: auto;
-    margin-top: 3rem;
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
     border-radius: 1.2rem;
+    margin-top: 3rem;
 }
 
 .social-icon {
     display: block;
     margin: auto;
-    height: 1.7rem;
-    width: 1.7rem ;
+    height: 1.9rem;
+    width: 1.9rem ;
 }
 
 .social-icon .icons-img {
@@ -87,28 +93,32 @@ body {
 .my-list li a {
     border-radius: 1rem;
 }
+.my-desc {
+    text-align: left;
+    width: 360px;
+    line-height: 27px;
+    font-size: 1.05rem; 
+}
+.big-title {
+    font-weight: bold;
+    text-align: left;
+    margin-top: 75px;
+    font-size: .7rem;   
+}
+.call-to-action{
+    margin-top: 10px;
+    margin-left: 0;
+}
 } 
 
 @media screen and (min-width:1024px){
     .mynav {
         width: 45%;
     }
-    .big-title {
-        font-weight: bold;
-        text-align: left;
-        margin-top: 75px;
-        font-size: .7rem;   
-    }
     .my-desc {
-        text-align: left;
         width: 460px;
-        line-height: 27px;
-        font-size: 1.05rem; 
     }
-    .call-to-action{
-        margin-top: 10px;
-        margin-left: 0;
-    }
+    
     .hero-section {
         text-align: left;
     }
